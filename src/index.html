@@ -3,96 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>[Park Name]</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script type="module" src="js/main.js"></script>
+    <title>Yellowstone National Park</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/main.js" type="module"></script>
   </head>
   <body>
     <p class="disclaimer">
-      This is not a real NPS website. It is an educational exercise. If you
-      landed here by accident, to find the real website visit
-      <a href="parkUrl">[park name]</a>
+      This is a student project and not affiliated with the official National Park Service. Please visit
+      <a href="https://www.nps.gov/yell/" target="_blank" rel="noopener">www.nps.gov/yell</a>
+      for official information.
     </p>
-    <div class="skip-links" aria-label="short-cut links" role="navigation">
-      <ul>
-        <li>
-          <a
-            href="#global-nav-toggle"
-            aria-label="Skip to global NPS navigation"
-            >Skip to global NPS navigation</a
-          >
-        </li>
-        <li>
-          <a href="#local-nav" aria-label="Skip to this park navigation"
-            >Skip to this park navigation</a
-          >
-        </li>
-        <li>
-          <a href="#main" aria-label="Skip to the main content"
-            >Skip to the main content</a
-          >
-        </li>
-        <li>
-          <a
-            href="#park-footer"
-            aria-label="Skip to this park information section"
-            >Skip to this park information section</a
-          >
-        </li>
-      </ul>
+
+    <div class="skip-links" aria-label="shortcut links" role="navigation">
+      <a href="#global-header" class="skip-link">Skip to global NPS navigation</a>
+      <a href="#park-header" class="skip-link">Skip to this park navigation</a>
+      <a href="#main" class="skip-link">Skip to main content</a>
+      <a href="#park-footer" class="skip-link">Skip to park information</a>
     </div>
+
     <header>
       <section class="global-header">
-        <a href="index.html" class="site-title"
-          ><span class="logo" role="presentation"></span>
-          <span>National Park Service</span></a
-        >
-        <div class="global-header__right">
-          <a class="search-icon" href="#park-footer">
+        <div class="global-header__container">
+          <!-- Logo -->
+          <a href="https://www.nps.gov/" class="global-header__logo">
             <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#search"></use>
+              <use xlink:href="/images/sprite.symbol.svg#nps-logo"></use>
             </svg>
-            <span class="visually-hidden">Search</span>
           </a>
-          <button id="global-nav-toggle">
-            <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#menu"></use>
-            </svg>
-            <span class="visually-hidden">Open</span> Menu
-          </button>
+          
+          <!-- Search Form -->
+          <div class="global-header__search">
+            <form class="search-form">
+              <label for="global-search">Search this site:</label>
+              <input type="text" id="global-search" placeholder="Enter search terms">
+              <button type="submit">
+                <svg class="icon">
+                  <use xlink:href="/images/sprite.symbol.svg#search"></use>
+                </svg>
+                Search
+              </button>
+            </form>
+          </div>
+          
+          <!-- Menu Button -->
+          <div class="global-header__menu">
+            <button class="menu-button">
+              <svg class="icon">
+                <use xlink:href="/images/sprite.symbol.svg#menu"></use>
+              </svg>
+              Menu
+            </button>
+          </div>
         </div>
-        <nav class="global-nav">
-          <h2 class="global-nav__section-heading">Explore this Park</h2>
-          <ul class="global-nav__list">
-            <li>
-              <div class="global-nav__split-button">
-                <a href="#">Plan Your Visit</a>
-                <button class="global-nav__split-button__toggle">
-                  <span class="visually-hidden"
-                    >Toggle submenu for Plan Your Visit</span
-                  >
-                  <svg class="icon" role="presentation" focusable="false">
-                    <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
-                  </svg>
-                </button>
-              </div>
-            </li>
-          </ul>
-        </nav>
       </section>
-      <section id="park-header">
-        <a href="#">
-          <span>Info</span>
-          <svg class="icon" role="presentation" focusable="false">
-            <use xlink:href="/images/sprite.symbol.svg#info"></use>
-          </svg>
-        </a>
-        <svg class="icon" role="presentation" focusable="false">
-          <use xlink:href="/images/sprite.symbol.svg#alert"></use>
-        </svg>
+
+      <section id="park-header" class="park-header">
+        <!-- Hero Image Section -->
+        <div class="hero-image">
+          <!-- Park Image -->
+          <img class="hero-image__img" alt="Loading park image...">
+          
+          <!-- Text Container -->
+          <div class="hero-image__text-container">
+            <div class="hero-image__text">
+              <!-- Park Title -->
+              <h1 class="hero-banner__title">
+                <a href="#">Loading park name...</a>
+              </h1>
+              
+              <!-- Park Info -->
+              <p class="hero-banner__subtitle">
+                <span class="hero-banner__designation">Loading designation...</span>
+                <span class="hero-banner__location">Loading location...</span>
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
     </header>
-    <main id="main"></main>
-    <footer id="park-footer"></footer>
+
+    <main id="main">
+      </main>
+
+    <footer id="park-footer">
+      </footer>
   </body>
 </html>
