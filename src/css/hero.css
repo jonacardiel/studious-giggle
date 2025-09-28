@@ -1,0 +1,208 @@
+/* GLOBAL RESET: Ensure no body constraints interfere with full-width elements */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scrollbar if 100vw causes issues */
+}
+
+/* Hero Section Styles */
+/* Ensure all header containers are unconstrained */
+header,
+.park-header,
+.hero-image {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* Ensure no max-width is applied to these containers! */
+}
+
+.hero-image {
+  height: 60vh;
+  min-height: 300px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-image__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+}
+
+.hero-image__text-container {
+  position: absolute;
+  bottom: 0;
+  
+  /* THE NEW FULL-WIDTH LOGIC */
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%); /* Pulls the 100vw element back to the center */
+}
+
+.hero-image__text {
+  color: var(--color-white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1.5rem 2rem;
+  
+  /* CRITICAL: Constrain and center the text content inside the full-width bar */
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-banner__title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-white);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.hero-banner__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero-banner__title a:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-banner__subtitle {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  margin: 0;
+  opacity: 0.9;
+  letter-spacing: 0.01em;
+  width: 100%;
+}
+
+.hero-banner__subtitle span {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Park Navigation */
+.park-nav {
+  background-color: #000000;
+  padding: 1rem 0;
+  margin: 0;
+  
+  /* THE NEW FULL-WIDTH LOGIC */
+  width: 100vw;
+  position: relative; /* Must be relative to use the centering hack */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.park-nav__list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  max-width: var(--max-width);
+}
+
+.park-nav__list li {
+  text-align: center;
+}
+
+.park-nav__list a {
+  color: var(--color-white);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  transition: opacity 0.2s ease;
+}
+
+.park-nav__list a:hover {
+  opacity: 0.8;
+}
+
+.park-nav__list .icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  fill: currentColor;
+  display: block;
+  margin: 0 auto 0.25rem;
+}
+
+.park-nav__list a {
+  color: var(--color-white);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.875rem;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.park-nav__list a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .hero-image {
+    height: 70vh;
+  }
+  
+  .hero-image__text {
+    padding: 4rem 2rem 3rem;
+  }
+  
+  .hero-banner__title {
+    font-size: 3.5rem;
+  }
+  
+  .hero-banner__subtitle {
+    font-size: 1.5rem;
+  }
+
+  .park-nav {
+    padding: 0.75rem 0;
+  }
+
+  .park-nav__list {
+    gap: 3rem;
+  }
+
+  .park-nav__list a {
+    font-size: 1rem;
+  }
+
+  .park-nav__list .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}

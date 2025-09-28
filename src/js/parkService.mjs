@@ -179,6 +179,30 @@ const park = {
   designation: "National Park"
 };
 
+const parkInfoLinks = [
+  {
+    name: "Current Conditions",
+    link: "conditions.html",
+    image: "https://www.nps.gov/common/uploads/structured_data/3C7D5920-1DD8-B71B-0B83F012ED802CEA.jpg",
+    description: "See what conditions to expect in the park before leaving on your trip!"
+  },
+  {
+    name: "Fees and Passes",
+    link: "fees.html",
+    image: "https://www.nps.gov/common/uploads/structured_data/3C7D334F-1DD8-B71B-0B108C7771F4E854.jpg",
+    description: "Learn about the fees and passes that are available."
+  },
+  {
+    name: "Visitor Centers",
+    link: "visitor_centers.html",
+    image: "https://www.nps.gov/common/uploads/structured_data/3C7D95DD-1DD8-B71B-0BC4FA19BD72F0EC.jpg",
+    description: "Learn about the visitor centers in the park."
+  }
+];
+
 export function getParkData() {
+  console.log('Getting park data...');
   return park;
 }
+
+export { parkInfoLinks, park };
