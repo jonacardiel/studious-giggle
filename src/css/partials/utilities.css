@@ -1,30 +1,77 @@
-/* Utility Classes */
+/* Utility classes */
 
-/* Loading State */
+/* Loading state */
 .loading {
-  cursor: wait;
-}
-
-.loading .hero-image__img,
-.loading .hero-image__text {
+  position: relative;
   opacity: 0.7;
-  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
-/* Error State */
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--bs-gray-300);
+  border-top-color: var(--bs-chathams-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error messages */
 .error-message {
-  text-align: center;
-  padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: var(--bs-danger);
+  color: white;
+  padding: 1rem;
   border-radius: 4px;
+  margin: 1rem 0;
+  text-align: center;
 }
 
-.error-message h1 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+/* Responsive utilities */
+.text-center {
+  text-align: center;
 }
 
-.error-message p {
-  font-size: 1rem;
-  opacity: 0.9;
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.d-none { display: none; }
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+
+@media (min-width: 768px) {
+  .d-md-none { display: none; }
+  .d-md-block { display: block; }
+  .d-md-flex { display: flex; }
+  .d-md-grid { display: grid; }
 }

@@ -37,10 +37,23 @@ function setParkInfoLinks(data) {
 }
 
 async function init() {
-  const parkData = await getParkData();
-  const links = getInfoLinks(parkData.images); // Pass the images array from parkData
-  setHeaderFooter(parkData);
-  setParkIntro(parkData);
-  setParkInfoLinks(links); // Use the updated links
+  try {
+    console.log('Initializing app...');
+    const parkData = await getParkData();
+    console.log('Park data received:', parkData);
+    
+    if (parkData && parkData.images) {
+      const links = getInfoLinks(parkData.images);
+      setHeaderFooter(parkData);
+      setParkIntro(parkData);
+      setParkInfoLinks(links);
+      console.log('App initialization complete');
+    } else {
+      console.error('Invalid park data received:', parkData);
+    }
+  } catch (error) {
+    console.error('App initialization failed:', error);
+  }
 }
+
 init();

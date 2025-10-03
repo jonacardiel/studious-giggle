@@ -8,12 +8,14 @@ async function getJson(url) {
       "X-Api-Key": apiKey
     }
   };
-  let data = {};
-  const response = await fetch(baseUrl + url, options); // Uses the passed-in URL fragment
+  
+  const response = await fetch(baseUrl + url, options);
   if (response.ok) {
-    data = await response.json();
-  } else throw new Error("response not ok");
-  return data;
+    const data = await response.json();
+    return data;
+  } else {
+    throw new Error(`API call failed: ${response.status} ${response.statusText}`);
+  }
 }
 
 const park = {
@@ -219,9 +221,13 @@ const parkInfoLinks = [
 ];
 
 export async function getParkData() {
-  // Calls the new cleaner function
-  const parkData = await getJson("parks?parkCode=yell");
-  return parkData.data[0];
+  try {
+    const parkData = await getJson("parks?parkCode=yell");
+    return parkData.data[0];
+  } catch (error) {
+    console.error('API call failed, using fallback data:', error);
+    return park;
+  }
 }
 
 export function getInfoLinks(data) {
