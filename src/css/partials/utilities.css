@@ -1,0 +1,30 @@
+/* Utility Classes */
+
+/* Loading State */
+.loading {
+  cursor: wait;
+}
+
+.loading .hero-image__img,
+.loading .hero-image__text {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+/* Error State */
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+}
+
+.error-message h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.error-message p {
+  font-size: 1rem;
+  opacity: 0.9;
+}

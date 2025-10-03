@@ -1,3 +1,21 @@
+const baseUrl = "https://developer.nps.gov/api/v1/";
+const apiKey = import.meta.env.VITE_NPS_API_KEY;
+
+async function getJson(url) {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-Api-Key": apiKey
+    }
+  };
+  let data = {};
+  const response = await fetch(baseUrl + url, options); // Uses the passed-in URL fragment
+  if (response.ok) {
+    data = await response.json();
+  } else throw new Error("response not ok");
+  return data;
+}
+
 const park = {
   id: "F58C6D24-8D10-4573-9826-65D42B8B83AD",
   url: "https://www.nps.gov/yell/index.htm",
@@ -200,9 +218,19 @@ const parkInfoLinks = [
   }
 ];
 
-export function getParkData() {
-  console.log('Getting park data...');
-  return park;
+export async function getParkData() {
+  // Calls the new cleaner function
+  const parkData = await getJson("parks?parkCode=yell");
+  return parkData.data[0];
 }
 
-export { parkInfoLinks, park };
+export function getInfoLinks(data) {
+  // Use parkInfoLinks.map to update image URLs with API data
+  const withUpdatedImages = parkInfoLinks.map((item, index) => {
+    item.image = data[index + 2].url; // Index + 2 skips the first two images
+    return item;
+  });
+  return withUpdatedImages;
+}
+
+export { park };

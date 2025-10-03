@@ -1,0 +1,62 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: var(--color-gray-dark);
+  margin: 0;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-blue-dark);
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--color-blue-medium);
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Skip links for accessibility */
+.skip-links {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-links a:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  left: auto;
+  background-color: var(--color-gold);
+  padding: 0.5rem;
+  color: var(--color-white);
+}
+
+.disclaimer {
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  background-color: var(--color-gray-light);
+  margin: 0;
+}
+
+/* Icons */
+.icon {
+  width: 2rem;
+  height: 2rem;
+  fill: currentColor;
+}

@@ -1,0 +1,56 @@
+/* Variables */
+:root {
+  /* Colors */
+  --color-gray-dark: #333;
+  --color-gray-medium: #666;
+  --color-gray-light: #f5f5f5;
+  --color-white: #fff;
+  --color-blue-dark: #003c62;
+  --color-blue-medium: #00517d;
+  --color-blue-hover: #006dad;
+  --color-blue-light: #e5f0f6;
+  
+  /* Dimensions */
+  --max-width: 1200px;
+  --header-height: 72px;
+  --container-padding: 1rem;
+  --container-padding-desktop: 2rem;
+  
+  /* Breakpoints */
+  --bp-small: 480px;
+  --bp-medium: 768px;
+  --bp-large: 1024px;
+  --bp-xlarge: 1200px;
+  
+  /* Typography */
+  --font-size-base: 16px;
+  --font-size-small: 0.875rem;
+  --font-size-medium: 1rem;
+  --font-size-large: 1.25rem;
+  --font-size-xlarge: 1.5rem;
+  --font-size-xxlarge: 2rem;
+  
+  /* Spacing */
+  --spacing-xxsmall: 0.25rem;
+  --spacing-xsmall: 0.5rem;
+  --spacing-small: 1rem;
+  --spacing-medium: 1.5rem;
+  --spacing-large: 2rem;
+  --spacing-xlarge: 3rem;
+  --spacing-xxlarge: 4rem;
+  
+  /* Shadows */
+  --shadow-small: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 2px 6px rgba(0, 0, 0, 0.15);
+  --shadow-large: 0 4px 12px rgba(0, 0, 0, 0.2);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-indices */
+  --z-index-nav: 100;
+  --z-index-header: 90;
+  --z-index-modal: 1000;
+}

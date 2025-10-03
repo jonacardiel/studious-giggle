@@ -1,4 +1,4 @@
-import { getParkData, parkInfoLinks } from "./parkService.mjs";
+import { getParkData, getInfoLinks } from "./parkService.mjs";
 import setHeaderFooter from "./setHeaderFooter.mjs";
 import { mediaCardTemplate } from "./templates.mjs";
 
@@ -36,13 +36,11 @@ function setParkInfoLinks(data) {
   }
 }
 
-// Initialize the page content
-console.log('Initializing page content...');
-const parkData = getParkData();
-console.log('Park data loaded:', parkData);
-
-console.log('Setting up page content...');
-setHeaderFooter(parkData);
-setParkIntro(parkData);
-setParkInfoLinks(parkInfoLinks);
-console.log('Page content setup complete!');
+async function init() {
+  const parkData = await getParkData();
+  const links = getInfoLinks(parkData.images); // Pass the images array from parkData
+  setHeaderFooter(parkData);
+  setParkIntro(parkData);
+  setParkInfoLinks(links); // Use the updated links
+}
+init();

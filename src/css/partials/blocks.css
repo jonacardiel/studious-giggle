@@ -1,0 +1,135 @@
+/* Main Content Blocks */
+
+/* Main Section */
+#main {
+  background-color: var(--color-white);
+  min-height: 400px;
+  width: 100%;
+}
+
+.main-content {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Intro Section */
+.intro {
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+  color: var(--color-blue-dark);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-gray-dark);
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  color: var(--color-gray-dark);
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .intro {
+    padding: 4rem 2rem;
+  }
+  
+  .intro h1 {
+    font-size: 3rem;
+  }
+  
+  .intro p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Info Section (Media Cards) */
+.info {
+  display: grid;
+  grid-template-columns: 1fr; /* Default to one column on small screens */
+  gap: 2rem;
+  padding-bottom: 2rem; /* Add space above footer */
+}
+
+.media-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.media-card > img {
+  width: 100%;
+  height: 200px; /* Consistent height for images */
+  object-fit: cover;
+}
+
+.media-card__content {
+  padding: 1rem;
+  flex-grow: 1; /* Allows content to push to the bottom */
+}
+
+.media-card h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.media-card h3 a {
+  color: var(--color-blue-medium);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.media-card h3 a:hover {
+  color: var(--color-blue-hover);
+}
+
+.media-card h3 a:after {
+  content: '›';
+  font-size: 1.4em;
+  line-height: 1;
+  margin-top: -0.1em;
+}
+
+.media-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Media Queries for Blocks */
+@media (min-width: 768px) {
+  /* Info section to display in 3 columns */
+  .info {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0 2rem 4rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  
+  .media-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .media-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+}
