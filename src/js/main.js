@@ -1,59 +1,28 @@
+import "../css/style.css";
+import "../css/home.css";
 import { getParkData, getInfoLinks } from "./parkService.mjs";
 import setHeaderFooter from "./setHeaderFooter.mjs";
 import { mediaCardTemplate } from "./templates.mjs";
 
-console.log('Main script starting...');
-
 function setParkIntro(data) {
-  try {
-    const introEl = document.querySelector(".intro");
-    if (!introEl) {
-      console.error("Intro element not found!");
-      return;
-    }
-    introEl.innerHTML = `<h1>${data.fullName}</h1>
+  const introEl = document.querySelector(".intro");
+  introEl.innerHTML = `<h1>${data.fullName}</h1>
     <p>${data.description}</p>`;
-    console.log("Intro content set:", data.fullName);
-  } catch (error) {
-    console.error('Error setting intro:', error);
-  }
 }
 
 function setParkInfoLinks(data) {
-  try {
-    const infoEl = document.querySelector(".info");
-    if (!infoEl) {
-      console.error("Info element not found!");
-      return;
-    }
-    // Transform array of objects into array of HTML strings
-    const html = data.map(mediaCardTemplate);
-    // Join and insert into section
-    infoEl.insertAdjacentHTML("afterbegin", html.join(""));
-    console.log("Info links set successfully");
-  } catch (error) {
-    console.error('Error setting info links:', error);
-  }
+  const infoEl = document.querySelector(".info");
+  const html = data.map(mediaCardTemplate);
+  infoEl.insertAdjacentHTML("afterbegin", html.join(""));
 }
 
 async function init() {
-  try {
-    console.log('Initializing app...');
-    const parkData = await getParkData();
-    console.log('Park data received:', parkData);
-    
-    if (parkData && parkData.images) {
-      const links = getInfoLinks(parkData.images);
-      setHeaderFooter(parkData);
-      setParkIntro(parkData);
-      setParkInfoLinks(links);
-      console.log('App initialization complete');
-    } else {
-      console.error('Invalid park data received:', parkData);
-    }
-  } catch (error) {
-    console.error('App initialization failed:', error);
-  }
+  const parkData = await getParkData();
+  const links = getInfoLinks(parkData.images);
+  
+  setHeaderFooter(parkData);
+  setParkIntro(parkData);
+  setParkInfoLinks(links);
 }
 
 init();

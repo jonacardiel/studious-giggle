@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yellowstone National Park</title>
+    <title>Yellowstone National Park - Current Conditions</title>
     <link rel="stylesheet" href="./css/hero.css" />
   </head>
   <body>
@@ -130,11 +130,27 @@
 
     <main id="main">
       <div class="main-content">
-        <section class="intro">
-          <!-- Park title and description will be inserted here -->
+        <h1>Current Conditions</h1>
+        
+        <section class="alerts">
+          <h2>Alerts</h2>
+          <ul class="alerts-list"></ul>
         </section>
-        <section class="info">
-          <!-- Park info cards will be inserted here -->
+        
+        <section class="visitor-services">
+          <h2>Visitor Services</h2>
+          <details name="conditions">
+            <summary>Visitor Centers</summary>
+            <div class="visitor-centers-list"></div>
+          </details>
+        </section>
+        
+        <section class="activities">
+          <h2>Activities</h2>
+          <details name="conditions">
+            <summary>All Activities</summary>
+            <div class="activities-list"></div>
+          </details>
         </section>
       </div>
     </main>
@@ -144,6 +160,6 @@
         <!-- Contact info will be inserted here -->
       </div>
     </footer>
-    <script src="./js/main.js" type="module"></script>
+    <script src="./js/conditions.js" type="module"></script>
   </body>
 </html>

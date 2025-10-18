@@ -30,7 +30,6 @@ function getMailingAddress(addresses) {
 
 function getVoicePhone(phoneNumbers) {
   const voice = phoneNumbers.find((phone) => phone.type === "Voice");
-  // Assuming the number is what we want, return the phoneNumber field if found, otherwise null
   return voice ? voice.phoneNumber : null;
 }
 
@@ -52,6 +51,38 @@ function footerTemplate(info) {
       Open "https://www.nps.gov/yell/index.htm" in a new tab
     </a>
   </section>`;
+}
+
+import spritePath from '../images/sprite.symbol.svg';
+
+export function alertTemplate(alert) {
+  let alertType = "";
+  // "Park Closure" needs to be mapped to "closure" for the icon
+  switch (alert.category) {
+    case "Park Closure":
+      alertType = "closure";
+      break;
+    default:
+      alertType = alert.category.toLowerCase();
+  }
+  
+  return `<li class="alert">
+    <svg class="icon" focusable="false" aria-hidden="true">
+      <use xlink:href="${spritePath}#alert-${alertType}"></use>  
+    </svg>
+    <div>
+      <h3 class="alert-${alertType}">${alert.title}</h3>
+      <p>${alert.description}</p>
+    </div>
+  </li>`;
+}
+
+export function visitorCenterTemplate(center) {
+  return `<div class="visitor-center">
+    <h3>${center.name}</h3>
+    <p>${center.description}</p>
+    ${center.directionsInfo ? `<p><strong>Directions:</strong> ${center.directionsInfo}</p>` : ''}
+  </div>`;
 }
 
 export { parkInfoTemplate, mediaCardTemplate, footerTemplate };

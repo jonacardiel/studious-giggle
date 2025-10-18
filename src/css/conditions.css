@@ -1,0 +1,149 @@
+/* Conditions Page Styles */
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.main-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--bs-madison);
+}
+
+/* Section Styles */
+.alerts, .visitor-services, .activities {
+  margin-bottom: 3rem;
+}
+
+.alerts h2, .visitor-services h2, .activities h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--bs-madison);
+}
+
+/* Alerts */
+.alerts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 4px;
+  background-color: var(--bs-pampas);
+}
+
+.alert .icon {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.alert div {
+  flex: 1;
+}
+
+.alert h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.alert p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Accordion Styling */
+details {
+  border: 1px solid var(--bs-border-color);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+summary {
+  padding: 1rem;
+  background-color: var(--bs-pampas);
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+summary:hover {
+  background-color: var(--bs-chathams-blue-4);
+}
+
+details > div {
+  padding: 1.5rem;
+}
+
+/* Visitor Centers */
+.visitor-center {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--bs-gray-200);
+}
+
+.visitor-center:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.visitor-center h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--bs-madison);
+}
+
+.visitor-center p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Activities */
+.activities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.activity-item {
+  padding: 1rem;
+  background-color: var(--bs-pampas);
+  border: 1px solid var(--bs-border-color);
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .main-content h1 {
+    font-size: 2rem;
+  }
+  
+  .alerts h2, .visitor-services h2, .activities h2 {
+    font-size: 1.5rem;
+  }
+  
+  .alert {
+    padding: 1rem;
+  }
+  
+  .activities-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

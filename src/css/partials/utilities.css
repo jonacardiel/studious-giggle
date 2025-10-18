@@ -75,3 +75,20 @@
   .d-md-flex { display: flex; }
   .d-md-grid { display: grid; }
 }
+
+/* Alert color classes */
+.alert-information {
+  color: var(--alert-information);
+}
+
+.alert-danger {
+  color: var(--alert-danger);
+}
+
+.alert-closure {
+  color: var(--alert-closure);
+}
+
+.alert-caution {
+  color: var(--alert-caution);
+}

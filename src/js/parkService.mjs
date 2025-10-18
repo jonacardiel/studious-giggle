@@ -225,18 +225,33 @@ export async function getParkData() {
     const parkData = await getJson("parks?parkCode=yell");
     return parkData.data[0];
   } catch (error) {
-    console.error('API call failed, using fallback data:', error);
-    return park;
+    return park; // Use fallback data if API fails
   }
 }
 
 export function getInfoLinks(data) {
-  // Use parkInfoLinks.map to update image URLs with API data
-  const withUpdatedImages = parkInfoLinks.map((item, index) => {
-    item.image = data[index + 2].url; // Index + 2 skips the first two images
+  return parkInfoLinks.map((item, index) => {
+    item.image = data[index + 2].url;
     return item;
   });
-  return withUpdatedImages;
+}
+
+export async function getAlertsData(parkCode) {
+  try {
+    const alertsData = await getJson(`alerts?parkCode=${parkCode}`);
+    return alertsData.data;
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getVisitorCenterData(parkCode) {
+  try {
+    const visitorCenterData = await getJson(`visitorcenters?parkCode=${parkCode}`);
+    return visitorCenterData.data;
+  } catch (error) {
+    return [];
+  }
 }
 
 export { park };
