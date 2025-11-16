@@ -1,4 +1,5 @@
 import { parkInfoTemplate, footerTemplate } from "./templates.mjs";
+import enableNavigation from "./navigation.mjs";
 
 function setHeaderInfo(data) {
   try {
@@ -50,14 +51,13 @@ function setFooter(data) {
   }
 }
 
-function setHeaderFooter(data) {
+export default function setHeaderFooter(data) {
   try {
     setHeaderInfo(data);
     setFooter(data);
+    enableNavigation();
     console.log("Header and footer setup complete");
   } catch (error) {
     console.error("Error in setHeaderFooter:", error);
   }
 }
-
-export default setHeaderFooter;
